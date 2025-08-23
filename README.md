@@ -70,12 +70,16 @@
 | <img src="Sources/XCTestPass1.jpg" width="500"> | <img src="Sources/XCTestPass2.jpg" width="500"> |
 
 ### Demo Video
-![演示视频](Sources/Client_ShowUp_Video.MP4)
+![演示视频](Sources/Client_ShowUp_Video_Compress.mp4)
 
 ### UI Design
-| 热门仓库 | 搜索仓库 | 个人信息页 | 登录页 |
-| --- | :---: | ---: |---: |
-| <img src="Sources/TrendingRepos.jpg" width="900"> | <img src="Sources/SearchRepos.jpg" width="400"> | <img src="Sources/ProfileView_Login.jpg" width="400"> |<img src="Resource/GitHubAuth3.jpg" width="400"> |
+| 热门仓库 | 搜索仓库 |
+| ---: | ---: |
+| <img src="Sources/TrendingRepos.jpg" width="500"> | <img src="Sources/SearchRepos.jpg" width="500"> | 
+
+| 个人信息页 | 登录页 |
+| ---: |---: |
+| <img src="Sources/ProfileView_Login.jpg" width="500"> |<img src="Resource/GitHubAuth3.jpg" width="500"> |
 
 ### Archriture Diagram
 
