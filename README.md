@@ -22,6 +22,7 @@
 - **GitHubService** 封装GitHub API服务的具体实现
 - **KeychainService** 封装钥匙串本地存储， 用于用户隐私数据本地缓存
 - **NetworkService** 基于Alamofire实现网络服务封装， 通过使用try await/async协程开发避免异步回调地狱，代码简洁，层次清晰； 同时支持Combine的响应式接口请求是事件流绑定服务
+另外，通过接入SwiftyJSON替换原生的JSONDecoder，能够很好地解决struct数据模型与接口返回字段一不匹配就出现数据解析异常的问题
 
 ### UI层 - SwiftUI构建
 - **MainView:** 首页，分为 热门仓库，搜索仓库，我的 3个Tab，支持未登录浏览，不影响读取仓库的相关数据
@@ -38,14 +39,15 @@
 ### 数据层
 - **User:** GitHub 授权用户的基本+详细信息数据模型
 - **Repository:** GitHub 仓库列表信息数据模型
+- **ClientEnv.plist** 用于存储GitHub授权登录的用户token信息， 防止代码逻辑上直接明文读取使用 
 
 ### 组件
 - **RepositoryRow** 仓库列表数据展示用到的行组件
 - **AsyncImageView** 基于KingFisher封装的图片异步加载组件
 
 ### Test
-- **ClientTests**
-- **ClientUITests**
+- **GitHubClientiOSTests**
+- **GitHubClientiOSUITests**
 
 ## Tech Stack
 - Swift
@@ -53,40 +55,31 @@
 - Combine
 - Kingfisher
 - Alamofire
+- SwiftyJSON
 - KeyChain
 - XCTest
 - XCUITests
 
-
-## Other
+## Localization 多语言国际化
+补充zh-Hans.lproj/localizable.strings
 
 ### Test
 
-| HomeWorkTests | HomeWorkUITests |
+| GitHubClientiOSTests | GitHubClientiOSUITests |
 | --- | :---: |
-| <img src="Resource/Test/unit_test.jpg" width="500"> | <img src="Resource/Test/ui_test.jpg" width="500"> |
+| <img src="Sources/XCTestPass1.jpg" width="500"> | <img src="Sources/XCTestPass2.jpg" width="500"> |
 
 ### Demo Video
-![演示视频](Resource/Video/demo_video.mp4)
+![演示视频](Sources/Client_ShowUp_Video.MP4)
 
 ### UI Design
-| Design | home | profile | logo |
+| 热门仓库 | 搜索仓库 | 个人信息页 | 登录页 |
 | --- | :---: | ---: |---: |
-| <img src="Resource/Design/design_overview_drawing.jpg" width="900"> | <img src="Resource/Design/design_overview_drawing.jpg" width="400"> | <img src="Resource/Design/design_overview_drawing.jpg" width="400"> |<img src="Resource/Design/design_overview_drawing.jpg" width="400"> |
+| <img src="Sources/TrendingRepos.jpg" width="900"> | <img src="Sources/SearchRepos.jpg" width="400"> | <img src="Sources/ProfileView_Login.jpg" width="400"> |<img src="Resource/GitHubAuth3.jpg" width="400"> |
 
+### Archriture Diagram
 
-
-### TestFlight
-| App | Website | Local |
-| --- | :---: | ---: |
-| <img src="Resource/TestFlight/testFlight_app.jpg" width="500"> | <img src="Resource/TestFlight/testFlight_website.jpg" width="700"> | <img src="Resource/TestFlight/local_upload.jpg" width="700"> |
-
-
-### Class Diagram
-
-| View | ViewModel |
-| --- | :---: |
-| <img src="Resource/ClassDiagram/view.jpg" width="800"> | <img src="Resource/ClassDiagram/view_model_event.jpg" width="400"> |
+<img src="Sources/Architure_Diargam.jpg" width="600"> 
 
 
 

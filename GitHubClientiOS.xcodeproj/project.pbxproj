@@ -43,6 +43,7 @@
 		163D23A12E59230000007C08 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D23A02E59230000007C08 /* AsyncImageView.swift */; };
 		163D23A82E59785200007C08 /* TrendingRepositoryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D23A72E59785200007C08 /* TrendingRepositoryWidget.swift */; };
 		163D23AC2E59A69B00007C08 /* ClientEnv.plist in Resources */ = {isa = PBXBuildFile; fileRef = 163D23AB2E59A69B00007C08 /* ClientEnv.plist */; };
+		163D23B12E5A684400007C08 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 163D23AF2E5A684400007C08 /* Localizable.strings */; };
 		3FB0DD2A93C32BBAD9AE6A9E /* Pods_GitHubClientiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E83F25DF4B9EAAA293D2E2 /* Pods_GitHubClientiOS.framework */; };
 		BFF6760ADD632B0692BBE254 /* Pods_GitHubClientiOS_GitHubClientiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52FC4885D38D05C5C87D769 /* Pods_GitHubClientiOS_GitHubClientiOSUITests.framework */; };
 		E01DAD26ADAD83DC0297B11F /* Pods_GitHubClientiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F8E01A96739DF9D7F79B35D /* Pods_GitHubClientiOSTests.framework */; };
@@ -109,6 +110,7 @@
 		163D23A22E5940C000007C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		163D23A72E59785200007C08 /* TrendingRepositoryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRepositoryWidget.swift; sourceTree = "<group>"; };
 		163D23AB2E59A69B00007C08 /* ClientEnv.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ClientEnv.plist; sourceTree = "<group>"; };
+		163D23B02E5A684400007C08 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = Localizable.strings; sourceTree = "<group>"; };
 		2C797C61FA55C4B2505EF3ED /* Pods-GitHubClientiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClientiOSTests.release.xcconfig"; path = "Target Support Files/Pods-GitHubClientiOSTests/Pods-GitHubClientiOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		2DEF1C84BA0299ED444E4AED /* Pods-GitHubClientiOS-GitHubClientiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClientiOS-GitHubClientiOSUITests.release.xcconfig"; path = "Target Support Files/Pods-GitHubClientiOS-GitHubClientiOSUITests/Pods-GitHubClientiOS-GitHubClientiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5F8E01A96739DF9D7F79B35D /* Pods_GitHubClientiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubClientiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +186,7 @@
 				163D23822E5907E300007C08 /* ViewModels */,
 				163D23832E5907F100007C08 /* Views */,
 				163D23842E5907FF00007C08 /* Widgets */,
+				163D23AD2E5A67F600007C08 /* Localization */,
 				163D23332E58805000007C08 /* Preview Content */,
 				163D23342E58805000007C08 /* Assets.xcassets */,
 				163D23AB2E59A69B00007C08 /* ClientEnv.plist */,
@@ -323,6 +326,22 @@
 			path = ErrorHandle;
 			sourceTree = "<group>";
 		};
+		163D23AD2E5A67F600007C08 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				163D23AE2E5A680C00007C08 /* zh-Hans.lproj */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		163D23AE2E5A680C00007C08 /* zh-Hans.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				163D23AF2E5A684400007C08 /* Localizable.strings */,
+			);
+			path = "zh-Hans.lproj";
+			sourceTree = "<group>";
+		};
 		B2C899B48DCC656D6989CA93 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +455,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 163D22D82E5861BB00007C08;
 			minimizedProjectReferenceProxies = 1;
@@ -457,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				163D23392E58805000007C08 /* Preview Assets.xcassets in Resources */,
+				163D23B12E5A684400007C08 /* Localizable.strings in Resources */,
 				163D23AC2E59A69B00007C08 /* ClientEnv.plist in Resources */,
 				163D233A2E58805000007C08 /* Assets.xcassets in Resources */,
 			);
@@ -650,6 +671,17 @@
 			targetProxy = 163D22FD2E5861BD00007C08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		163D23AF2E5A684400007C08 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				163D23B02E5A684400007C08 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		163D23042E5861BD00007C08 /* Debug */ = {
