@@ -79,7 +79,7 @@
 
 | 个人信息页 | 登录页 |
 | ---: |---: |
-| <img src="Sources/ProfileView_Login.jpg" width="500"> |<img src="Resource/GitHubAuth3.jpg" width="500"> |
+| <img src="Sources/ProfileView_Login.jpg" width="500"> |<img src="Sources/GitHubAuth3.jpg" width="500"> |
 
 ### Archriture Diagram
 
