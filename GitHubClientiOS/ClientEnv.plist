@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLI_ID</key>
+	<string>Ov23liXpYcalBThcyh9n</string>
+	<key>CLI_SEC</key>
+	<string>6a020b3aa0c9d70805dd27049bdb473722983899</string>
+	<key>CLI_NAME</key>
+	<string>HWClientiOS</string>
+	<key>CLI_REDIR_URL</key>
+	<string>GHOAuth232508://auth</string>
+</dict>
+</plist>
