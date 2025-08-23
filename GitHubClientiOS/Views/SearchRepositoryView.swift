@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchRepositoryView: View {
     @EnvironmentObject var viewModel: RepositoryListViewModel
-    @State private var searchQuery: String = ""
+    @State private var searchQuery: String = "Swift"
     @State private var debounceTimer: Timer?
     
     var body: some View {
@@ -31,6 +31,7 @@ struct SearchRepositoryView: View {
                         }
                     }
                     .listStyle(PlainListStyle())
+                    .accessibilityIdentifier("SearchResultList")
                     .onAppear {
                         // 初始搜索
                         if !searchQuery.isEmpty && viewModel.searchResults.isEmpty {
@@ -66,10 +67,16 @@ struct SearchRepositoryView: View {
                 Alert(
                     title: Text("搜索失败"),
                     message: Text(error.message),
-                    dismissButton: .default(Text("重试")) {
+                    primaryButton: .default(Text("取消")) {
+                        viewModel.errorMessage = nil
+                    },
+                    secondaryButton: .default(Text("重试")) {
                         performSearch()
                     }
                 )
+            }
+            .onAppear {
+                performSearch()
             }
         }
     }

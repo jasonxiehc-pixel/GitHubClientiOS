@@ -44,15 +44,18 @@ struct MainView: View {
             }
         }
         .onAppear {
-            checkLoginStatus()
+            Task {
+                await checkLoginStatus()
+            }
             setupNotificationObservers()
         }
     }
     
     // 检查登录状态
-    private func checkLoginStatus() {
+    private func checkLoginStatus() async {
         isLoggedIn = authViewModel.isLoggedIn
         if isLoggedIn {
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
             profileViewModel.loadCurrentUserProfile()
         }
     }
@@ -96,16 +99,17 @@ struct LoginPromptView: View {
             Button(action: {
                 authViewModel.startAuthorization()
             }) {
-                Text("GitHub登录")
+                Text("使用GitHub账号登录")
                     .frame(minWidth: 0, maxWidth: 200)
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
+            .accessibilityIdentifier("LoginPromptGitHubLogin")
             
             // 生物识别登录选项
-            if authViewModel.isBiometricAvailable && authViewModel.isBiometricEnabled {
+            if authViewModel.isBiometricAvailable || authViewModel.isBiometricEnabled {
                 Button(action: {
                     authViewModel.authenticateWithBiometrics()
                 }) {

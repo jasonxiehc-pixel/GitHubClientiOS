@@ -93,8 +93,7 @@ final class GitHubService: GitHubServiceProtocol {
                 url: url,
                 method: .get,
                 params: nil,
-                headers: createHeaders(),
-                decoder: createDecoder()
+                headers: createHeaders()
             )
         } catch {
             try handleError(error)
@@ -116,8 +115,7 @@ final class GitHubService: GitHubServiceProtocol {
                 url: url,
                 method: .get,
                 params: nil,
-                headers: createHeaders(),
-                decoder: createDecoder()
+                headers: createHeaders()
             )
         } catch {
             try handleError(error)
@@ -134,12 +132,11 @@ final class GitHubService: GitHubServiceProtocol {
         let url = "\(GitHubService.baseURL)/users/\(username)/repos?page=\(page)&per_page=\(perPage)&sort=pushed"
         
         do {
-            return try await networkService.request(
+            return try await networkService.requestArray(
                 url: url,
                 method: .get,
                 params: nil,
-                headers: createHeaders(),
-                decoder: createDecoder()
+                headers: createHeaders()
             )
         } catch {
             try handleError(error)
@@ -159,8 +156,7 @@ final class GitHubService: GitHubServiceProtocol {
                 url: url,
                 method: .get,
                 params: nil,
-                headers: createHeaders(),
-                decoder: createDecoder()
+                headers: createHeaders()
             )
         } catch {
             try handleError(error)
@@ -177,12 +173,11 @@ final class GitHubService: GitHubServiceProtocol {
         let url = "\(GitHubService.baseURL)/user/repos?page=\(page)&per_page=\(perPage)&sort=pushed"
         
         do {
-            return try await networkService.request(
+            return try await networkService.requestArray(
                 url: url,
                 method: .get,
                 params: nil,
-                headers: createHeaders(),
-                decoder: createDecoder()
+                headers: createHeaders()
             )
         } catch {
             try handleError(error)
@@ -203,8 +198,7 @@ final class GitHubService: GitHubServiceProtocol {
                 url: url,
                 method: .get,
                 params: nil,
-                headers: createHeaders(),
-                decoder: createDecoder()
+                headers: createHeaders()
             )
         } catch {
             try handleError(error)

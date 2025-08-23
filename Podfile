@@ -9,6 +9,7 @@ target 'GitHubClientiOS' do
   # Pods for GitHubClientiOS
   pod 'Alamofire'
   pod 'Kingfisher'
+  pod 'SwiftyJSON'
 
   target 'GitHubClientiOSTests' do
     inherit! :search_paths

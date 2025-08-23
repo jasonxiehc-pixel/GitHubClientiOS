@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 /// 基于Keychain的安全认证服务实现
 final class SecureAuthService: AuthServiceProtocol {
@@ -138,8 +139,7 @@ final class SecureAuthService: AuthServiceProtocol {
             url: url,
             method: .post,
             params: params,
-            headers: headers,
-            decoder: JSONDecoder()
+            headers: headers
         )
         
         guard let accessToken = response.accessToken else {
@@ -177,8 +177,7 @@ final class SecureAuthService: AuthServiceProtocol {
             url: url,
             method: .get,
             params: nil,
-            headers: headers,
-            decoder: createDecoder()
+            headers: headers
         )
     }
     
@@ -271,7 +270,7 @@ enum AuthError: Error, LocalizedError, Equatable {
 }
 
 /// 令牌响应模型
-private struct TokenResponse: Decodable {
+private struct TokenResponse: SwiftyJSONParsable {
     let accessToken: String?
     let tokenType: String?
     let scope: String?
@@ -279,13 +278,13 @@ private struct TokenResponse: Decodable {
     let error: String?
     let errorDescription: String?
     
-    enum CodingKeys: String, CodingKey {
-        case accessToken = "access_token"
-        case tokenType = "token_type"
-        case scope
-        case refreshToken = "refresh_token"
-        case error
-        case errorDescription = "error_description"
+    init?(json: JSON) {
+        accessToken = json["access_token"].string
+        tokenType = json["token_type"].string
+        scope = json["scope"].string
+        refreshToken = json["refresh_token"].string
+        error = json["error"].string
+        errorDescription = json["error_description"].string
     }
 }
 

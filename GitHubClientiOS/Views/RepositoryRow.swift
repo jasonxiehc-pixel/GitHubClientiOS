@@ -18,6 +18,7 @@ struct RepositoryRow: View {
                 Text(repository.name)
                     .font(.headline)
                     .fontWeight(.semibold)
+                    .accessibilityIdentifier("仓库标题")
                 
                 Text("/")
                     .font(.subheadline)
@@ -34,19 +35,18 @@ struct RepositoryRow: View {
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .lineLimit(2)
+                    .accessibilityIdentifier("repositoryDesc")
             }
             
             // 仓库统计信息
             HStack(spacing: 16) {
                 // 编程语言
-                if let language = repository.language {
-                    HStack(spacing: 4) {
-                        Circle()
-                            .frame(width: 8, height: 8)
-                            .foregroundColor(languageColor(for: language))
-                        Text(language)
-                            .font(.caption)
-                    }
+                HStack(spacing: 4) {
+                    Circle()
+                        .frame(width: 8, height: 8)
+                        .foregroundColor(languageColor(for: repository.language))
+                    Text(repository.language)
+                        .font(.caption)
                 }
                 
                 // 星标数量

@@ -8,6 +8,12 @@
 import Foundation
 import Alamofire
 import Combine
+import SwiftyJSON
+
+// 定义 SwiftyJSON 解析协议
+protocol SwiftyJSONParsable {
+    init?(json: JSON)
+}
 
 /// 网络服务协议
 protocol NetworkServiceProtocol {
@@ -19,21 +25,26 @@ protocol NetworkServiceProtocol {
     ///   - headers: 请求头
     ///   - decoder: 用于解码响应数据的解码器
     /// - Returns: 解码后的响应模型
-    func request<T: Decodable>(
+    func request<T: SwiftyJSONParsable>(
         url: String,
         method: HTTPMethod,
         params: Parameters?,
-        headers: HTTPHeaders?,
-        decoder: JSONDecoder
+        headers: HTTPHeaders?
     ) async throws -> T
     
-    /// 使用Combine发送网络请求
-    func requestPublisher<T: Decodable>(
+    func requestArray<T: SwiftyJSONParsable>(
         url: String,
         method: HTTPMethod,
         params: Parameters?,
-        headers: HTTPHeaders?,
-        decoder: JSONDecoder
+        headers: HTTPHeaders?
+    ) async throws -> [T]
+    
+    /// 使用Combine发送网络请求
+    func requestPublisher<T: SwiftyJSONParsable>(
+        url: String,
+        method: HTTPMethod,
+        params: Parameters?,
+        headers: HTTPHeaders?
     ) -> AnyPublisher<T, Error>
     
     /// 下载图片数据

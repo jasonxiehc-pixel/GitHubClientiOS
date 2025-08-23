@@ -92,7 +92,8 @@ class RepositoryListViewModel: ObservableObject {
                     self.hasMoreData = response.items.count == self.pageSize
                     self.isLoading = false
                 }
-            } catch {
+            }
+            catch {
                 DispatchQueue.main.async {
                     self.errorMessage = ErrorWrap(localizedDescription: error.localizedDescription)
                     self.isLoading = false

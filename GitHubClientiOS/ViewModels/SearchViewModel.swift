@@ -92,7 +92,8 @@ class SearchViewModel: ObservableObject {
                     isLoading = false
                     isSearching = false
                 }
-            } catch {
+            }
+            catch {
                 await MainActor.run {
                     errorMessage = error.localizedDescription
                     isLoading = false

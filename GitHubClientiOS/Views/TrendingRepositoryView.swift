@@ -38,7 +38,10 @@ struct TrendingRepositoryView: View {
                 Alert(
                     title: Text("加载失败"),
                     message: Text(error.message),
-                    dismissButton: .default(Text("重试")) {
+                    primaryButton: .default(Text("取消")) {
+                        viewModel.errorMessage = nil
+                    },
+                    secondaryButton: .default(Text("重试")) {
                         viewModel.loadTrendingRepositories(since: selectedTimeframe)
                     }
                 )
@@ -48,6 +51,7 @@ struct TrendingRepositoryView: View {
                     viewModel.loadTrendingRepositories(since: selectedTimeframe)
                 }
             }
+            .accessibilityIdentifier("trendingRepoList")
         }
     }
     

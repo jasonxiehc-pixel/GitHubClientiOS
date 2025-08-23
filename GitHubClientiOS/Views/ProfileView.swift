@@ -23,14 +23,8 @@ struct ProfileView: View {
                         // 用户信息
                         Section {
                             VStack(alignment: .center, spacing: 16) {
-                                AsyncImage(url: URL(string: user.avatarUrl)) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                } placeholder: {
-                                    Image(systemName: "person.circle.fill")
-                                        .resizable()
-                                }
+                                AsyncImageView(urlStr: user.avatarUrl,
+                                avatarPlaceholder: "person.circle.fill")
                                 .frame(width: 120, height: 120)
                                 .clipShape(Circle())
                                 .shadow(radius: 5)
@@ -126,7 +120,10 @@ struct ProfileView: View {
                 Alert(
                     title: Text("加载失败"),
                     message: Text(error.message),
-                    dismissButton: .default(Text("重试")) {
+                    primaryButton: .default(Text("取消")) {
+                        profileViewModel.errorMessage = nil
+                    },
+                    secondaryButton: .default(Text("重试")) {
                         profileViewModel.loadCurrentUserProfile()
                     }
                 )
