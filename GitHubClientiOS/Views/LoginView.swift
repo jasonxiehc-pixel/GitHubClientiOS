@@ -49,7 +49,7 @@ struct LoginView: View {
             .accessibilityIdentifier("GitHubLoginButton")
             
             // 生物识别登录选项
-            if authViewModel.isBiometricAvailable || authViewModel.isBiometricEnabled {
+            if authViewModel.isBiometricAvailable && authViewModel.isBiometricEnabled {
                 Button(action: {
                     authViewModel.authenticateWithBiometrics()
                 }) {

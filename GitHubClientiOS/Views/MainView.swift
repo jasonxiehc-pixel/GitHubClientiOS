@@ -19,7 +19,7 @@ struct MainView: View {
             // 热门仓库标签页 - 未登录可访问
             TrendingRepositoryView()
                 .tabItem {
-                    Image(systemName: "trendingup")
+                    Image("hot_tab")
                     Text("热门")
                 }
             
@@ -109,7 +109,7 @@ struct LoginPromptView: View {
             .accessibilityIdentifier("LoginPromptGitHubLogin")
             
             // 生物识别登录选项
-            if authViewModel.isBiometricAvailable || authViewModel.isBiometricEnabled {
+            if authViewModel.isBiometricAvailable && authViewModel.isBiometricEnabled {
                 Button(action: {
                     authViewModel.authenticateWithBiometrics()
                 }) {

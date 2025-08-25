@@ -155,10 +155,11 @@ final class SecureAuthService: AuthServiceProtocol {
     
     /// 登出并清除所有认证信息
     func logout() throws {
-        try keychainService.removeValue(forKey: KeychainKeys.accessToken)
-        try keychainService.removeValue(forKey: KeychainKeys.refreshToken)
-        storedState = nil
-        
+        if  try !isBiometricLoginEnabled() {
+            try keychainService.removeValue(forKey: KeychainKeys.accessToken)
+            try keychainService.removeValue(forKey: KeychainKeys.refreshToken)
+            storedState = nil
+        }
         // 发送登出通知
         NotificationCenter.default.post(name: .userLoggedOut, object: nil)
     }
