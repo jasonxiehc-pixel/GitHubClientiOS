@@ -70,7 +70,14 @@
 | <img src="Sources/XCTestPass1.jpg" width="500"> | <img src="Sources/XCTestPass2.jpg" width="500"> |
 
 ### Demo Video
-![演示视频](Sources/Client_ShowUp_Video_Compress.mp4)
+![演示视频1](Sources/Client_ShowUp1.mp4)
+![演示视频2](Sources/Client_ShowUp2.mp4)
+![演示视频3](Sources/Client_ShowUp3.mp4)
+
+### TestFlight 支持
+| Apple正在审核... |
+| ---: |
+| <img src="Sources/TestFlight_OnProc.jpg" width="500"> |
 
 ### UI Design
 | 热门仓库 | 搜索仓库 |
